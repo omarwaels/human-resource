@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -42,6 +43,6 @@ public class Project {
     @Column(name = "project_name")
     private String projectName;
 
-    @ManyToMany(mappedBy = "projects", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "employerProject", fetch = FetchType.LAZY)
     List<Employer> employer;
 }

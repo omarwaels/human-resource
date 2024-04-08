@@ -30,7 +30,7 @@ public class JpaTransactionManager  {
             return result;
         } catch (Exception e) {
             transaction.rollback();
-            throw e;
+            return null ;
         } finally {
             entityManager.close();
         }

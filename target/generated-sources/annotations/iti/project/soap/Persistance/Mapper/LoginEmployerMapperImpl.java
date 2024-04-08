@@ -7,7 +7,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-07T03:38:00+0200",
+    date = "2024-04-08T02:28:50+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.9 (Oracle Corporation)"
 )
 public class LoginEmployerMapperImpl implements LoginEmployerMapper {
@@ -28,6 +28,7 @@ public class LoginEmployerMapperImpl implements LoginEmployerMapper {
         employerLoginDTO.setPhoneNum( employer.getPhoneNum() );
         employerLoginDTO.setManagerName( employerHumanResourceIdFirstName( employer ) );
         employerLoginDTO.setProjectName( employerEmployerProjectProjectName( employer ) );
+        employerLoginDTO.setProjectId( employerEmployerProjectProjectId( employer ) );
 
         return employerLoginDTO;
     }
@@ -60,5 +61,17 @@ public class LoginEmployerMapperImpl implements LoginEmployerMapper {
             return null;
         }
         return projectName;
+    }
+
+    private int employerEmployerProjectProjectId(Employer employer) {
+        if ( employer == null ) {
+            return 0;
+        }
+        Project employerProject = employer.getEmployerProject();
+        if ( employerProject == null ) {
+            return 0;
+        }
+        int projectId = employerProject.getProjectId();
+        return projectId;
     }
 }

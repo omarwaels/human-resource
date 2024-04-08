@@ -20,6 +20,7 @@ public interface LoginEmployerMapper {
     @Mapping(source = "employer.phoneNum", target = "phoneNum")
     @Mapping(source = "employer.humanResourceId.firstName", target = "managerName")
     @Mapping(source = "employer.employerProject.projectName", target = "projectName")
+    @Mapping(source = "employer.employerProject.projectId", target = "projectId")
     EmployerLoginDTO employerToLoginDTO(Employer employer);
 
 

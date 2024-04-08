@@ -28,6 +28,9 @@ public class EmployerLoginDTO {
     
     @XmlElement(name = "projectName")
     private String projectName;
+
+    @XmlElement(name = "projectId")
+    private int projectId;
     
     @XmlElement(name = "address")
     private String address;

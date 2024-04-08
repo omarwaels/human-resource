@@ -51,8 +51,9 @@ public class Employer {
     @JoinColumn(name = "manager_id")
     private Employer humanResourceId;
 
-    @Column(name = "project_id" )
+    
     @ManyToOne(fetch = FetchType.EAGER)
-    Project employerProject;
+    @JoinColumn(name = "project_id")
+    private Project employerProject;
      
 }
