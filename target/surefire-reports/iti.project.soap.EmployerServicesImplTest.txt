@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: iti.project.soap.EmployerServicesImplTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.101 s <<< FAILURE! -- in iti.project.soap.EmployerServicesImplTest
+iti.project.soap.EmployerServicesImplTest.addingEmployer -- Time elapsed: 2.086 s <<< ERROR!
+java.lang.Exception: This employer already in the System
+	at iti.project.soap.Services.ServiceImpl.EmployerServicesImpl.registerManager(EmployerServicesImpl.java:192)
+	at iti.project.soap.EmployerServicesImplTest.addingEmployer(EmployerServicesImplTest.java:35)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

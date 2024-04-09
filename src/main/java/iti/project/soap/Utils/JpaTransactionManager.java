@@ -1,7 +1,5 @@
 package iti.project.soap.Utils;
 
-
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -10,19 +8,18 @@ import jakarta.persistence.Persistence;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class JpaTransactionManager  {
-    private JpaTransactionManager () {
+public class JpaTransactionManager {
+    private JpaTransactionManager() {
     }
 
     // Spring's TransactionCallBack
-    private static final EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("PU");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
 
     public static <R> R doInTransaction(
             Function<EntityManager, R> returningTransactionFunction) {
-                
-                EntityManager entityManager = emf.createEntityManager();
-                EntityTransaction transaction = entityManager.getTransaction();
+
+        EntityManager entityManager = emf.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         try {
             R result = returningTransactionFunction.apply(entityManager);
@@ -30,7 +27,8 @@ public class JpaTransactionManager  {
             return result;
         } catch (Exception e) {
             transaction.rollback();
-            return null ;
+            e.printStackTrace();
+            return null;
         } finally {
             entityManager.close();
         }

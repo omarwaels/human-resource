@@ -1,6 +1,5 @@
 package iti.project.soap.Persistance.Entity;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -21,9 +20,9 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "project" ,schema = "human-resource-project" )
+@Table(name = "project", schema = "human-resource-project")
 public class Project {
-  
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_id")
@@ -45,4 +44,10 @@ public class Project {
 
     @OneToMany(mappedBy = "employerProject", fetch = FetchType.LAZY)
     List<Employer> employer;
+
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
+    List<Roles> roles;
+
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
+    List<Request> requests;
 }

@@ -1,8 +1,20 @@
 <endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
 <endpoint
- name="login"
+ name="Employers"
  implementation="iti.project.soap.Services.ServiceImpl.EmployerServicesImpl"
- url-pattern="/login"/>
+ url-pattern="/v1/employer"/>
+<endpoint
+ name="Events"
+ implementation="iti.project.soap.Services.ServiceImpl.EventServicesImpl"
+ url-pattern="/v1/event"/>
+<endpoint
+ name="requests"
+ implementation="iti.project.soap.Services.ServiceImpl.RequestServicesImpl"
+ url-pattern="/v1/request"/>
+<endpoint
+ name="projects"
+ implementation="iti.project.soap.Services.ServiceImpl.ProjectServicesImpl"
+ url-pattern="/v1/project"/>
 </endpoints>
 
 

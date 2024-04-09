@@ -3,7 +3,7 @@ package iti.project.soap.Utils;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class PasswordHashing {
-    public static String hashPassword(String plainTextPassword){
+    public static String hashPassword(String plainTextPassword) {
         return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
     }
 

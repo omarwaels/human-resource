@@ -6,29 +6,20 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
-
 @Data
-@XmlRootElement(name = "employerLogin")
-@XmlAccessorType(XmlAccessType.FIELD)
+
 public class EmployerRegisterDTO {
 
- 
-    @XmlElement(name = "firstName")
     private String firstName;
-    
-    @XmlElement(name = "lastName")
+
     private String lastName;
-    
-    @XmlElement(name = "email")
+
     private String email;
-    
-    @XmlElement(name = "address")
+
     private String address;
-    
-    @XmlElement(name = "phoneNum")
+
     private String phoneNum;
-    
-    @XmlElement(name = "password")
+
     private String password;
-    
+
 }
