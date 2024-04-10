@@ -25,11 +25,8 @@ This project implements a SOAP (Simple Object Access Protocol) service using JAX
 - **Lombok** - Java library for reducing boilerplate code.
 - **MapStruct** - Java annotation processor for generating type-safe mapper classes.
 - **HikariCP** - High-performance JDBC connection pooling library.
-- **Mockito** - Java mocking framework for unit tests.
 - **JUnit Jupiter** - Testing framework for writing unit tests.
 - **AssertJ** - Java assertion library for writing fluent assertions.
-- **WireMock** - Library for stubbing and mocking HTTP services.
-- **Hibernate Validator** - Bean validation framework for validating data.
 - **BCrypt** - Hashing library for password hashing.
 - **Jakarta EE** - Platform for developing and deploying enterprise Java applications.
 
