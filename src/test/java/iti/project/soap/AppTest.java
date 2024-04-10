@@ -1,9 +1,15 @@
 package iti.project.soap;
 
 import iti.project.soap.Persistance.DAO.EmployerDAOImp;
+import iti.project.soap.Persistance.DTO.CreateEventDTO;
+import iti.project.soap.Persistance.DTO.CreateRequestDTO;
+import iti.project.soap.Persistance.DTO.DeleteRequestDTO;
 import iti.project.soap.Persistance.DTO.ManagerRegisterDTO;
 import iti.project.soap.Persistance.Entity.Employer;
-import iti.project.soap.Services.ServiceImpl.EmployerServicesImpl;
+import iti.project.soap.Services.EmployerServicesImpl;
+import iti.project.soap.Services.EventServicesImpl;
+import iti.project.soap.Services.ProjectServicesImpl;
+import iti.project.soap.Services.RequestServicesImpl;
 
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.AutoCloseableSoftAssertions;
@@ -11,6 +17,7 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 public class AppTest {
 
     private EmployerServicesImpl employerServices;
@@ -60,4 +67,95 @@ e.printStackTrace();
         managerRegisterDTO.setProjectName("test");
         return managerRegisterDTO;
     }
+    class EventServicesImplTest {
+
+        @Test
+        void testCreateEvent() {
+
+            EventServicesImpl eventServices = new EventServicesImpl();
+            CreateEventDTO createEventDTO = createTestCreateEventDTO();
+    
+   
+            try {
+                Boolean result = eventServices.createEvent(createEventDTO);
+    
+       
+                assertThat(result).isEqualTo(true);
+              
+            } catch (Exception e) {
+                fail("Exception occurred during test: " + e.getMessage());
+            }
+        }
+    
+        private CreateEventDTO createTestCreateEventDTO() {
+            CreateEventDTO createEventDTO = new CreateEventDTO();
+            createEventDTO.setEventName("Test Event");
+            createEventDTO.setProjectName("Test Project");
+            createEventDTO.setEmployerId(1); // Assuming a valid employer ID
+            return createEventDTO;
+        }
+    }
+    @Test
+    void testRemoveProject() {
+        // Arrange
+        ProjectServicesImpl projectServices = new ProjectServicesImpl();
+        int employerId = 1; // Assuming a valid employer ID
+
+        // Act
+        try {
+            Boolean result = projectServices.removeProject(employerId);
+
+            // Assert
+            assertThat(result).isEqualTo(true);
+        } catch (Exception e) {
+            fail("Exception occurred during test: " + e.getMessage());
+        }
+    }
+
+    @Test
+    void testCreateRequest() {
+        // Arrange
+        RequestServicesImpl requestServices = new RequestServicesImpl();
+        CreateRequestDTO createRequestDTO = createTestCreateRequestDTO();
+
+        // Act
+        try {
+            Boolean result = requestServices.createRequest(createRequestDTO);
+
+            // Assert
+            assertThat(result).isEqualTo(true);
+        } catch (Exception e) {
+            fail("Exception occurred during test: " + e.getMessage());
+        }
+    }
+    
+    @Test
+    void testDeleteRequest() {
+        // Arrange
+        RequestServicesImpl requestServices = new RequestServicesImpl();
+        DeleteRequestDTO deleteRequestDTO = createTestDeleteRequestDTO();
+
+        // Act
+        try {
+            Boolean result = requestServices.deleteRequest(deleteRequestDTO);
+
+            // Assert
+            assertThat(result).isEqualTo(true);
+        } catch (Exception e) {
+            fail("Exception occurred during test: " + e.getMessage());
+        }
+    }
+
+    private CreateRequestDTO createTestCreateRequestDTO() {
+        CreateRequestDTO createRequestDTO = new CreateRequestDTO();
+        // Fill in the fields with test data
+        return createRequestDTO;
+    }
+
+    private DeleteRequestDTO createTestDeleteRequestDTO() {
+        DeleteRequestDTO deleteRequestDTO = new DeleteRequestDTO();
+        // Fill in the fields with test data
+        return deleteRequestDTO;
+    }
+
 }
